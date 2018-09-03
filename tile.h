@@ -30,7 +30,8 @@ public:
         neighbor[Tile::Right] = nullptr;
     }
 
-    Tile* move();
+    void move();
+    Tile* randomNeighbor();
     bool isBlank();
     Tile* getBlank();
     bool isMovable();
