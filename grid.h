@@ -19,7 +19,7 @@ public:
 
     Grid(int s, QRect area);
     void newGrid(int s, QRect area);
-    void shuffle();
+    void shuffle(){}
     void resize(); //recalculate and redraw on window resize
     void draw();
     void print();

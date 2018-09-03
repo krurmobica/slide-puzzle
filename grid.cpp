@@ -27,11 +27,14 @@ void Grid:: newGrid(int s, QRect area){
 
     if (w < h) tileSize = (int)floor(w/size);
 
-    int n = 0;
+    int n = 1;
     for( int y=0; y < size; y++ )    {
 
         for( int x=0; x < size; x++ )
         {
+            if (n == maxSize){
+                n = 0;
+            }
             Tile t(n,QPoint(x,y),QRect(x_coord,y_coord,tileSize,tileSize));
             this->setTile(x, y, t);
             bindTile(x,y);
@@ -86,7 +89,7 @@ void Grid::print()
     {
         for( int j=0; j < size; j++ )
         {
-            cout << this->getTile(j,i)->getValue();
+            cout << this->getTile(j,i)->getValue() << " ";
             int *nbr = this->getTile(j,i)->getNeighborValues();
 
             for (int c = 0; c < 4 ; c++){
