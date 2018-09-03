@@ -51,6 +51,38 @@ void Grid:: newGrid(int s, QRect area){
     this->print();
 }
 
+void Grid::shuffle(){
+    node* lastNode = new node;
+    lastNode->val = 0;
+
+    for (int i = 0; i < 20; i++){
+        Tile *next = blankTile->randomNeighbor();
+        cout << next->getValue() << ">";
+        int tileValue = next->getValue();
+        if (tileValue != lastNode->val){
+            node *n = new node;
+            n->val = tileValue;
+            n->tile = blankTile;
+            n->last = lastNode;
+            lastNode = n;
+
+        } else { //ignore back forth moves
+            if (lastNode->last != NULL){
+                lastNode = lastNode->last;
+                i--;
+            } else {
+                lastNode = new node;
+                lastNode->val = 0;
+            }
+        }
+
+        next->move();
+        blankTile = next;
+    }
+
+    this->lastNode = lastNode;
+}
+
 void Grid::setTile(int x, int y, Tile t){
     if (x < size && y < size){
         int index = x+y*size; //convert 2d coordinates to 1d

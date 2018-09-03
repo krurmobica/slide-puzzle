@@ -4,6 +4,8 @@
 #include <QRect>
 #include "tile.h"
 
+struct node;
+
 class Grid : public QObject
 {
     Q_OBJECT
@@ -14,12 +16,13 @@ private:
     int tileSize; // pixel size of a Tile
     Tile* blankTile;
     Tile* tileArray;
+    node* lastNode;
 
 public:
 
     Grid(int s, QRect area);
     void newGrid(int s, QRect area);
-    void shuffle(){}
+    void shuffle();
     void resize(); //recalculate and redraw on window resize
     void draw();
     void print();
@@ -28,5 +31,11 @@ public:
     Tile* getTile(int x, int y);
 
 };
+struct node{
+    int val;
+    Tile *tile;
+    node *last;
+};
+
 
 #endif // GRID_H
