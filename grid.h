@@ -12,7 +12,7 @@ private:
     int maxSize;
     int tileSize; // pixel size of a Tile
     Tile blankTile;
-    Tile tileArray;
+    Tile* tileArray;
 
 public:
     Grid(int s, QRect area);
@@ -21,6 +21,9 @@ public:
     void draw();
     void print();
     void bindTile(int x, int y);
+    void setTile(int x, int y, Tile);
+    Tile* getTile(int x, int y);
+
 };
 
 #endif // GRID_H
