@@ -25,11 +25,15 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         slider_mainwindow.cpp \
-    renderarea.cpp
+    renderarea.cpp \
+    grid.cpp \
+    tile.cpp
 
 HEADERS += \
         slider_mainwindow.h \
-    renderarea.h
+    renderarea.h \
+    grid.h \
+    tile.h
 
 FORMS += \
         slider_mainwindow.ui

@@ -34,7 +34,7 @@ public:
     int * getNeighborValues();
     QPoint getPosition();
     QRect rect();
-    Tile* neighbor[4]; //directions
+    Tile* neighbor[4];
 };
 
 #endif // TILE_H
