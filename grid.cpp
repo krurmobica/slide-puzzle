@@ -50,14 +50,14 @@ void Grid:: newGrid(int s, QRect area){
 
 void Grid::setTile(int x, int y, Tile t){
     if (x < size && y < size){
-        int index = x+y; //convert 2d coordinates to 1d
+        int index = x+y*size; //convert 2d coordinates to 1d
         tileArray[index] = t;
     }
 }
 
 Tile* Grid:: getTile(int x, int y){
     if (x < size && y < size){
-        int index = x+y; //convert 2d coordinates to 1d
+        int index = x+y*size; //convert 2d coordinates to 1d
         return &tileArray[index];
     }
 }
@@ -88,6 +88,7 @@ void Grid::print()
         {
             cout << this->getTile(j,i)->getValue();
             int *nbr = this->getTile(j,i)->getNeighborValues();
+
             for (int c = 0; c < 4 ; c++){
                cout << nbr[c] << " ";
             }
