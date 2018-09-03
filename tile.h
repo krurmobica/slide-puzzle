@@ -23,7 +23,12 @@ public:
     };
 
     Tile();
-    Tile(int v, QPoint p, QRect r): val(v), pos(p), rectangle(r){}
+    Tile(int v, QPoint p, QRect r): val(v), pos(p), rectangle(r){
+        neighbor[Tile::Up] = nullptr;
+        neighbor[Tile::Down] = nullptr;
+        neighbor[Tile::Left] = nullptr;
+        neighbor[Tile::Right] = nullptr;
+    }
 
     void move();
     bool isBlank();
@@ -31,7 +36,7 @@ public:
     void setPosition(QPoint p);
     void setRectangle(QRect r);
     int getValue();
-    int * getNeighborValues();
+    int* getNeighborValues();
     QPoint getPosition();
     QRect rect();
     Tile* neighbor[4];

@@ -1,4 +1,6 @@
 #include "tile.h"
+#include <iostream>
+using namespace std;
 
 Tile::Tile()
 {
@@ -35,17 +37,17 @@ int Tile::getValue(){
     return val;
 }
 
-int * Tile::getNeighborValues(){
-    int r[] = {-1,-1,-1,-1};
-    int i=0;
+int* Tile::getNeighborValues(){
+    int *r = new int[4];
+    for (int i=0; i<4;i++) r[i]=-1;
     if (neighbor[Tile::Up] != nullptr)
-        r[i++]=neighbor[Tile::Up]->val;
+        r[0]=neighbor[Tile::Up]->val;
     if (neighbor[Tile::Down] != nullptr)
-        r[i++]=neighbor[Tile::Down]->val;
+        r[1]=neighbor[Tile::Down]->val;
     if (neighbor[Tile::Left] != nullptr)
-        r[i++]=neighbor[Tile::Left]->val;
+        r[2]=neighbor[Tile::Left]->val;
     if (neighbor[Tile::Right] != nullptr)
-        r[i++]=neighbor[Tile::Right]->val;
+        r[3]=neighbor[Tile::Right]->val;
     return r;
 }
 
