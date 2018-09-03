@@ -8,16 +8,27 @@ Tile::Tile()
     neighbor[Tile::Right] = nullptr;
 }
 
-void Tile::move(){
+Tile* Tile::move(){
     if (!this->isBlank()){
         //check if blank is a neighbor
-
+        if (this->isMovable()){
+            Tile* blank = this->getBlank();
+        }
     }
+    return nullptr;
 }
 
 bool Tile::isBlank(){
     if (val == 0) return true;
     return false;
+}
+Tile* Tile::getBlank(){
+    for (int i=0; i<4; i++){
+        if (neighbor[i] != nullptr && neighbor[i]->val == 0){
+            return neighbor[i];
+        }
+    }
+    return nullptr;
 }
 
 bool Tile::isMovable(){

@@ -30,8 +30,9 @@ public:
         neighbor[Tile::Right] = nullptr;
     }
 
-    void move();
+    Tile* move();
     bool isBlank();
+    Tile* getBlank();
     bool isMovable();
     void setValue(int v);
     void setPosition(QPoint p);
