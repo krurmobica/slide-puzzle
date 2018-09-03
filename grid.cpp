@@ -34,13 +34,17 @@ void Grid:: newGrid(int s, QRect area){
         {
             Tile t(n,QPoint(x,y),QRect(x_coord,y_coord,tileSize,tileSize));
             this->setTile(x, y, t);
+            bindTile(x,y);
+            if (n == 0) {
+                this->blankTile = this->getTile(x, y);
+            }
             n++;
             x_coord+=tileSize;
         }
         x_coord = area.topLeft().x(); //reset x coord
         y_coord+=tileSize;
     }
-    shuffle(); // not implemented
+    shuffle();
     this->print();
 }
 
@@ -55,6 +59,23 @@ Tile* Grid:: getTile(int x, int y){
     if (x < size && y < size){
         int index = x+y; //convert 2d coordinates to 1d
         return &tileArray[index];
+    }
+}
+
+void Grid::bindTile(int x, int y){
+    //bind neighboring tiles together
+    Tile *thisTile = this->getTile(x,y);
+    if (x!=0) // x = 0 has no Left neighbor
+    {
+        Tile *leftTile = this->getTile(x-1,y);
+        thisTile->neighbor[Tile::Left] = leftTile;
+        leftTile->neighbor[Tile::Right] = thisTile;
+    }
+    if (y>0) //y=0 has no Up neighbor
+    {
+        Tile *upTile = this->getTile(x,y-1);
+        thisTile->neighbor[Tile::Up] = upTile;
+        upTile->neighbor[Tile::Down] = thisTile;
     }
 }
 
