@@ -71,6 +71,20 @@ void SliderMainWindow::startTimer()
     timer->start(10);
 }
 
+QString SliderMainWindow::timeToString(int milliseconds){
+    int seconds = milliseconds / 1000;
+    milliseconds %= 1000;
+
+    int minutes = seconds / 60;
+    seconds %= 60;
+
+    int hours = minutes / 60;
+    minutes %= 60;
+
+    QTime t(hours, minutes, seconds, milliseconds);
+    return t.toString("hh:mm:ss.zzz");
+}
+
 void SliderMainWindow::on_actionCheats_changed()
 {
     this->ui->renderArea->cheats = !this->ui->renderArea->cheats;
