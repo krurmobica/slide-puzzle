@@ -8,13 +8,15 @@ class Grid : public QObject
 {
     Q_OBJECT
 private:
+
     int size; // number of tiles on each side
     int maxSize;
     int tileSize; // pixel size of a Tile
-    Tile blankTile;
+    Tile* blankTile;
     Tile* tileArray;
 
 public:
+
     Grid(int s, QRect area);
     void newGrid(int s, QRect area);
     void resize(); //recalculate and redraw on window resize
