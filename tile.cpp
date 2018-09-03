@@ -1,6 +1,4 @@
 #include "tile.h"
-#include <iostream>
-using namespace std;
 
 Tile::Tile()
 {
@@ -13,11 +11,20 @@ Tile::Tile()
 void Tile::move(){
     if (!this->isBlank()){
         //check if blank is a neighbor
+
     }
 }
 
 bool Tile::isBlank(){
     if (val == 0) return true;
+    return false;
+}
+
+bool Tile::isMovable(){
+    int* n_values = this->getNeighborValues();
+    for (int i=0; i<4; i++){
+        if(n_values[i]==0) return true;
+    }
     return false;
 }
 

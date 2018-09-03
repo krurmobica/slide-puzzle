@@ -32,6 +32,7 @@ public:
 
     void move();
     bool isBlank();
+    bool isMovable();
     void setValue(int v);
     void setPosition(QPoint p);
     void setRectangle(QRect r);
