@@ -13,6 +13,9 @@ Tile* Tile::move(){
         //check if blank is a neighbor
         if (this->isMovable()){
             Tile* blank = this->getBlank();
+            blank->val = this->val;
+            this->val = 0;
+            return this;
         }
     }
     return nullptr;
