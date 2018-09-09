@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTime>
+#include "grid.h"
 
 namespace Ui {
 class SliderMainWindow;
@@ -20,7 +21,6 @@ public:
 private slots:
     void on_newgameBtn_clicked();    
     void on_undoBtn_clicked();
-    void on_actionCheats_changed();
     void updateMoves( int moves, int last );
 
 private:

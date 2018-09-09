@@ -170,7 +170,7 @@
         <item>
          <widget class="QLabel" name="label">
           <property name="text">
-           <string>Lastmove:</string>
+           <string>Last:</string>
           </property>
          </widget>
         </item>
@@ -214,7 +214,7 @@
           </property>
           <property name="minimumSize">
            <size>
-            <width>80</width>
+            <width>60</width>
             <height>0</height>
            </size>
           </property>
@@ -254,7 +254,7 @@
      </layout>
     </item>
    </layout>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -266,32 +266,7 @@
     <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>625</width>
-     <height>18</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuMenu">
-    <property name="title">
-     <string>Menu</string>
-    </property>
-    <addaction name="actionCheats"/>
-   </widget>
-   <addaction name="menuMenu"/>
-  </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionCheats">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Cheats</string>
-   </property>
-  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

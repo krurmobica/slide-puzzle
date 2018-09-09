@@ -19,6 +19,13 @@ void Tile::move(){
     }
 }
 
+void Tile::draw(QPainter* painter, QColor* border, QColor* pen){
+    painter->setPen(*border);
+    painter->drawRect(rectangle);
+    painter->setPen(*pen);
+    if (val > 0) {painter->drawText(rectangle, Qt::AlignCenter, QString("%1").arg(val));}
+}
+
 Tile* Tile::randomNeighbor(){
     Tile* next;
     do{

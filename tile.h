@@ -2,6 +2,8 @@
 #define TILE_H
 
 #include <QObject>
+#include <QPainter>
+#include <QColor>
 #include <QPoint>
 #include <QRect>
 
@@ -31,6 +33,7 @@ public:
     }
 
     void move();
+    void draw(QPainter* painter, QColor* border, QColor* pen);
     Tile* randomNeighbor();
     bool isBlank();
     Tile* getBlank();
